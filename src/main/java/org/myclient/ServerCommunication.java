@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+/*
+* Responsavel por fazer toda a comunicação com o servidor
+ */
 public class ServerCommunication {
     private Socket serverSocket;
     private ObjectOutputStream  output;

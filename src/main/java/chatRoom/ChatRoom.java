@@ -4,10 +4,12 @@ package chatRoom;
 import org.myclient.Client;
 import org.myclient.ServerCommunicationSingleton;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class ChatRoom {
+    private ObjectInputStream input;
     private boolean isRunning = true;
     private ChatRoomOutput chatRoomOutput;
     private ChatRoomInput chatRoomInput;
@@ -16,6 +18,7 @@ public class ChatRoom {
         clear();
         chatRoomInput = new ChatRoomInput(input, this);
         chatRoomOutput = new ChatRoomOutput(output, this);
+        this.input = input;
 
         Client.setInChat(true);
         chatRoomOutput.start();
@@ -30,6 +33,9 @@ public class ChatRoom {
         Client.setInChat(false);
         chatRoomOutput.close();
         chatRoomInput.close();
+
+        System.exit(0);
+
 
         ServerCommunicationSingleton.getInstance().close();
     }

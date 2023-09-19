@@ -31,10 +31,6 @@ public class ChatRoomInput extends Thread {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-
-            if(mensage.equals("/SAIR")){
-                chatRoom.close();
-            }
         }
     }
 

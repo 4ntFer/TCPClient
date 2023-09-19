@@ -35,6 +35,7 @@ public class ChatRoomOutput extends Thread{
 
             if(mensage.equals("/SAIR")){
                 chatRoom.setNotRunning();
+                chatRoom.close();
             }
         }
     }
